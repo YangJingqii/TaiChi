@@ -1,0 +1,394 @@
+.album-page {
+  background: #F7F3EA;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 8rpx 0 32rpx;
+}
+
+.title {
+  color: #263D2E;
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.subtitle {
+  margin-top: 8rpx;
+  color: rgba(38, 61, 46, 0.58);
+  font-size: 26rpx;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.upload-btn,
+.group-action-btn,
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 88rpx;
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  line-height: 1.2;
+}
+
+.upload-btn {
+  flex: 0 0 238rpx;
+  margin: 0;
+  padding: 0 22rpx;
+  color: #ffffff;
+  background: #4F6F52;
+  font-size: 27rpx;
+  white-space: nowrap;
+}
+
+.form-panel,
+.album-card {
+  box-sizing: border-box;
+  border: 1rpx solid rgba(38, 61, 46, 0.08);
+  border-radius: 28rpx;
+  background: #FFFDF7;
+  box-shadow: 0 10rpx 28rpx rgba(38, 61, 46, 0.04);
+}
+
+.circle-status {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 18rpx;
+  min-height: 92rpx;
+  margin: -12rpx 0 32rpx;
+  padding: 18rpx 22rpx;
+  border: 1rpx solid rgba(38, 61, 46, 0.08);
+  border-radius: 24rpx;
+  background: #FFFDF7;
+}
+
+.circle-status.empty {
+  min-height: 112rpx;
+}
+
+.circle-status-main {
+  min-width: 0;
+}
+
+.circle-status-name {
+  overflow: hidden;
+  color: #263D2E;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.circle-status-meta,
+.create-circle-link {
+  margin-top: 6rpx;
+  color: rgba(38, 61, 46, 0.54);
+  font-size: 24rpx;
+  line-height: 1.35;
+}
+
+.circle-status-action {
+  flex: 0 0 auto;
+  color: #4F6F52;
+  font-size: 26rpx;
+  line-height: 1.4;
+}
+
+.join-circle-btn {
+  flex: 0 0 176rpx;
+  height: 68rpx;
+  margin: 0;
+  border-radius: 999rpx;
+  color: #ffffff;
+  background: #4F6F52;
+  font-size: 26rpx;
+  line-height: 1.2;
+}
+
+.form-panel {
+  margin-bottom: 40rpx;
+  padding: 32rpx;
+}
+
+.preview {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 24rpx;
+  background: #F7F3EA;
+}
+
+.date-input,
+.desc-input {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 24rpx;
+  border: 1rpx solid rgba(38, 61, 46, 0.08);
+  border-radius: 24rpx;
+  background: #FFFDF7;
+  color: #263D2E;
+  font-size: 30rpx;
+}
+
+.date-input {
+  height: 88rpx;
+  padding: 0 24rpx;
+}
+
+.desc-input {
+  min-height: 150rpx;
+  padding: 22rpx 24rpx;
+  line-height: 1.8;
+}
+
+.mood-title {
+  margin-top: 28rpx;
+  color: #263D2E;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.mood-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14rpx;
+  margin-top: 16rpx;
+}
+
+.mood-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 calc((100% - 14rpx) / 2);
+  box-sizing: border-box;
+  height: 72rpx;
+  margin: 0;
+  padding: 0 12rpx;
+  border: 1rpx solid rgba(38, 61, 46, 0.08);
+  border-radius: 999rpx;
+  color: rgba(38, 61, 46, 0.68);
+  background: #FFFDF7;
+  font-size: 28rpx;
+  line-height: 1.2;
+}
+
+.mood-chip.active {
+  color: #ffffff;
+  border-color: #9A463C;
+  background: #9A463C;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 28rpx;
+}
+
+.action-btn {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0 14rpx;
+  white-space: nowrap;
+}
+
+.timeline-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 24rpx;
+  color: #263D2E;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.album-scroll {
+  height: calc(100vh - 210rpx);
+}
+
+.album-card {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24rpx;
+  padding: 32rpx;
+}
+
+.album-author {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.author-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: #DDE8D8;
+  color: #263D2E;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.author-main {
+  min-width: 0;
+}
+
+.author-name {
+  max-width: 430rpx;
+  overflow: hidden;
+  color: #263D2E;
+  font-size: 30rpx;
+  font-weight: 500;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.album-date {
+  margin-top: 4rpx;
+  color: rgba(38, 61, 46, 0.5);
+  font-size: 24rpx;
+}
+
+.album-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 22rpx;
+  margin-top: 22rpx;
+}
+
+.album-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.album-desc {
+  color: rgba(38, 61, 46, 0.82);
+  font-size: 30rpx;
+  line-height: 1.8;
+}
+
+.thumb-wrap {
+  position: relative;
+  flex: 0 0 auto;
+  width: 180rpx;
+  height: 180rpx;
+  overflow: hidden;
+  border-radius: 24rpx;
+  background: #F7F3EA;
+}
+
+.album-thumb {
+  width: 100%;
+  height: 100%;
+}
+
+.thumb-missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(38, 61, 46, 0.42);
+  font-size: 22rpx;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.album-moods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-top: 16rpx;
+}
+
+.album-mood {
+  padding: 6rpx 16rpx;
+  border-radius: 999rpx;
+  color: #9A463C;
+  background: rgba(154, 70, 60, 0.08);
+  font-size: 24rpx;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+  margin-top: 24rpx;
+}
+
+.like-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 108rpx;
+  height: 62rpx;
+  margin: 0;
+  padding: 0 22rpx;
+  border: 1rpx solid rgba(38, 61, 46, 0.08);
+  border-radius: 999rpx;
+  color: rgba(38, 61, 46, 0.62);
+  background: #FFFDF7;
+  font-size: 27rpx;
+}
+
+.like-pill.liked {
+  color: #9A463C;
+  background: rgba(154, 70, 60, 0.08);
+}
+
+.like-mark {
+  margin-right: 8rpx;
+}
+
+.text-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.text-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84rpx;
+  height: 62rpx;
+  margin: 0;
+  padding: 0;
+  color: rgba(38, 61, 46, 0.58);
+  background: transparent;
+  font-size: 27rpx;
+}
+
+.text-action.danger {
+  color: #9A463C;
+}
+
+.empty {
+  padding: 120rpx 48rpx;
+  text-align: center;
+  color: rgba(38, 61, 46, 0.58);
+}
+
+.empty-title {
+  color: #263D2E;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.empty-text {
+  margin-top: 14rpx;
+  font-size: 28rpx;
+  line-height: 1.7;
+}

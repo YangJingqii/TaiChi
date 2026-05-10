@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/daily/daily",
+    "pages/album/album",
+    "pages/me/me"
+  ],
+  "window": {
+    "navigationBarTitleText": "太极拳友",
+    "navigationBarBackgroundColor": "#F7F3EA",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F7F3EA"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#263D2E",
+    "selectedColor": "#263D2E",
+    "backgroundColor": "#F7F3EA",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/daily/daily",
+        "text": "日课"
+      },
+      {
+        "pagePath": "pages/album/album",
+        "text": "打卡"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

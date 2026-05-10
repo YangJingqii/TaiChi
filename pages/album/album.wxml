@@ -1,0 +1,99 @@
+<view class="page album-page">
+  <view class="header">
+    <view>
+      <view class="title">今日打卡</view>
+      <view class="subtitle">记一笔功夫，也看看拳友们练了什么</view>
+    </view>
+    <button class="upload-btn" bindtap="chooseImage">留下今日印记</button>
+  </view>
+
+  <view class="circle-status {{selectedGroup ? '' : 'empty'}}">
+    <block wx:if="{{selectedGroup}}">
+      <view class="circle-status-main">
+        <view class="circle-status-name">{{selectedGroup.displayName || '晨练小组'}}</view>
+        <view class="circle-status-meta">今日 {{circleTodayCount}} 人已打卡</view>
+      </view>
+      <view class="circle-status-action" bindtap="openCircleManager">切换</view>
+    </block>
+    <block wx:else>
+      <view class="circle-status-main">
+        <view class="circle-status-name">和拳友一起打卡，练拳更有伴。</view>
+        <view class="create-circle-link" bindtap="createGroup">没有拳友圈？创建一个</view>
+      </view>
+      <button class="join-circle-btn" bindtap="joinGroup">加入拳友圈</button>
+    </block>
+  </view>
+
+  <view class="form-panel" wx:if="{{draft.imageUrl}}">
+    <image class="preview" src="{{draft.imageUrl}}" mode="aspectFill"></image>
+    <input class="date-input" type="text" value="{{draft.date}}" bindinput="onDateInput" placeholder="日期，如 2026-05-09" />
+    <textarea class="desc-input" value="{{draft.description}}" bindinput="onDescriptionInput" maxlength="80" placeholder="写一句今日练习记录"></textarea>
+    <view class="mood-title">今天练完的状态</view>
+    <view class="mood-list">
+      <button
+        class="mood-chip {{item.active ? 'active' : ''}}"
+        wx:for="{{moodOptions}}"
+        wx:key="name"
+        bindtap="toggleMood"
+        data-mood="{{item.name}}"
+      >{{item.name}}</button>
+    </view>
+    <view class="form-actions">
+      <button class="secondary-btn action-btn" bindtap="clearDraft">取消</button>
+      <button class="primary-btn action-btn" loading="{{saving}}" bindtap="submitAlbum">留下今日印记</button>
+    </view>
+  </view>
+
+  <view class="timeline-head">
+    <text>拳友打卡记录</text>
+    <text class="muted">{{albumList.length}} 条</text>
+  </view>
+
+  <scroll-view class="album-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <block wx:if="{{albumList.length}}">
+      <view class="album-card" wx:for="{{albumList}}" wx:key="id">
+        <view class="album-info">
+          <view class="album-author">
+            <image wx:if="{{item.author_avatar}}" class="author-avatar" src="{{item.author_avatar}}" mode="aspectFill"></image>
+            <view wx:else class="author-avatar fallback">拳</view>
+            <view class="author-main">
+              <view class="author-name">{{item.author_name || '拳友'}}</view>
+              <view class="album-date">{{item.date}}</view>
+            </view>
+          </view>
+          <view class="album-body">
+            <view class="album-text">
+              <view class="album-desc">{{item.description}}</view>
+              <view class="album-moods" wx:if="{{item.mood_tags && item.mood_tags.length}}">
+                <text class="album-mood" wx:for="{{item.mood_tags}}" wx:key="*this">{{item}}</text>
+              </view>
+            </view>
+            <view wx:if="{{item.image_url}}" class="thumb-wrap" bindtap="previewImage" data-url="{{item.image_url}}">
+              <image class="album-thumb" src="{{item.image_url}}" mode="aspectFill"></image>
+            </view>
+            <view wx:elif="{{item.image_load_failed}}" class="thumb-wrap thumb-missing">
+              <text>图片暂不可用</text>
+            </view>
+          </view>
+          <view class="card-actions">
+            <button class="like-pill {{item.liked ? 'liked' : ''}}" bindtap="toggleLike" data-id="{{item.id}}">
+              <text class="like-mark">{{item.liked ? '赞' : '赞'}}</text>
+              <text>{{item.likes_count || 0}}</text>
+            </button>
+            <view class="text-actions" wx:if="{{item.is_owner}}">
+              <button class="text-action danger" bindtap="deleteAlbum" data-id="{{item.id}}" data-url="{{item.image_file_id || item.image_url}}" data-owner="{{item.is_owner}}">删除</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="empty" wx:elif="{{selectedGroupId}}">
+      <view class="empty-title">还没有动态</view>
+      <view class="empty-text">群内拳友还没有打卡，记录你的今日晨练吧。</view>
+    </view>
+    <view class="empty" wx:else>
+      <view class="empty-title">还没有打卡</view>
+      <view class="empty-text">先记录自己的今日练拳，加入拳友圈后还能看拳友动态。</view>
+    </view>
+  </scroll-view>
+</view>

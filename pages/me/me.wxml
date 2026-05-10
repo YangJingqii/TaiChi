@@ -1,0 +1,56 @@
+<view class="page me-page">
+  <view class="profile-head">
+    <view>
+      <view class="profile-title">太极日课</view>
+      <view class="profile-subtitle">慢慢练，日日有痕</view>
+    </view>
+  </view>
+
+  <view class="user-card">
+    <view class="user-main">
+      <view class="avatar-btn">
+        <image wx:if="{{profile.avatarUrl}}" class="profile-avatar" src="{{profile.avatarUrl}}" mode="aspectFill"></image>
+        <view wx:else class="profile-avatar fallback">拳</view>
+      </view>
+      <view class="profile-form">
+        <view class="nickname-display">{{profile.nickName || '微信用户'}}</view>
+        <view class="profile-hint">
+          <text class="level-seal">{{currentBadge.icon}}</text>
+          <text>{{currentBadge.badge_name || currentBadge.name}}</text>
+        </view>
+      </view>
+      <button class="edit-profile-btn" bindtap="startEditProfile">{{editingProfile ? '收起' : '编辑资料'}}</button>
+    </view>
+    <view class="profile-editor" wx:if="{{editingProfile}}">
+      <button class="avatar-change-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">换头像</button>
+      <input class="nickname-input" type="text" value="{{profile.nickName}}" bindinput="onNicknameInput" placeholder="输入昵称" />
+      <button class="save-profile-btn" loading="{{savingProfile}}" bindtap="saveProfile">保存资料</button>
+    </view>
+  </view>
+
+  <view class="section-title">太极家书</view>
+  <view class="letter-paper">
+    <view class="letter-corner top"></view>
+    <view class="letter-corner bottom"></view>
+    <view class="letter-content">{{letterContent}}</view>
+  </view>
+
+  <view class="section-row">
+    <view class="section-title">太极印记</view>
+  </view>
+
+  <view class="badge-grid">
+    <view class="badge-card {{item.unlocked ? 'is-unlocked' : 'is-locked'}}" wx:for="{{badges}}" wx:key="key">
+      <view class="seal-wrap">
+        <view class="seal">
+          <view class="seal-inner">{{item.icon}}</view>
+        </view>
+      </view>
+      <view class="badge-name">{{item.badge_name}}</view>
+      <view class="badge-desc">{{item.condition}}</view>
+      <view class="badge-meta">
+        <text>{{item.statusText}}</text>
+      </view>
+    </view>
+  </view>
+</view>

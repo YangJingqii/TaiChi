@@ -1,0 +1,53 @@
+<view class="page daily-page">
+  <view class="daily-head">
+    <view>
+      <view class="daily-title">今日日课</view>
+      <view class="daily-subtitle">读一句拳理，留一日功夫</view>
+    </view>
+    <view class="today-chip">{{today}}</view>
+  </view>
+
+  <view class="sign-paper">
+    <view class="sign-label">今日拳理</view>
+    <view class="sign-title">{{dailySign.title}}</view>
+    <view class="sign-line" wx:for="{{dailySign.lines}}" wx:key="*this">{{item}}</view>
+    <button class="feel-btn {{feltToday ? 'felt' : ''}}" bindtap="feelToday">体会一下</button>
+  </view>
+
+  <view class="today-status-card {{todayChecked ? 'done' : ''}}">
+    <view class="status-dot"></view>
+    <view class="status-copy">
+      <view class="status-title">{{todayChecked ? '今日已留印' : '今日未打卡'}}</view>
+      <view class="status-text">{{todayChecked ? '这一日功夫，已经记下。' : '练完后，去打卡页留一句体会。'}}</view>
+    </view>
+  </view>
+
+  <view class="section-row">
+    <view>
+      <view class="section-title">本月日课</view>
+      <view class="month-summary">已坚持 {{monthCount}} 天，连续 {{streak}} 天，继续慢慢来。</view>
+    </view>
+  </view>
+
+  <view class="calendar-panel">
+    <view class="calendar-head">
+      <button class="month-btn" bindtap="changeMonth" data-offset="-1">‹</button>
+      <view class="calendar-month">{{calendarMonth}}</view>
+      <button class="month-btn" bindtap="changeMonth" data-offset="1">›</button>
+    </view>
+    <view class="week-row">
+      <view class="week-label">日</view>
+      <view class="week-label">一</view>
+      <view class="week-label">二</view>
+      <view class="week-label">三</view>
+      <view class="week-label">四</view>
+      <view class="week-label">五</view>
+      <view class="week-label">六</view>
+    </view>
+    <view class="calendar-grid">
+      <view class="day-cell {{item.checked ? 'checked' : ''}} {{item.day ? '' : 'empty'}}" wx:for="{{calendarCells}}" wx:key="key">
+        <view class="day-text" wx:if="{{item.day}}">{{item.day}}</view>
+      </view>
+    </view>
+  </view>
+</view>
